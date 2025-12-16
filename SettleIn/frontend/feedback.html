@@ -1,0 +1,18 @@
+<h2>Feedback</h2>
+
+<input id="name" placeholder="Name">
+<textarea id="msg"></textarea>
+<button onclick="send()">Submit</button>
+
+<script>
+function send() {
+  fetch("http://localhost:5000/api/feedback", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      name: name.value,
+      message: msg.value
+    })
+  });
+}
+</script>

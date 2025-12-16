@@ -1,0 +1,11 @@
+<h2>Nearby Hostels & PGs</h2>
+<div id="list"></div>
+
+<script>
+fetch("http://localhost:5000/api/services/hostel")
+.then(res => res.json())
+.then(data => {
+  document.getElementById("list").innerHTML =
+    data.map(s => `<p>${s.title} - ${s.location} - ₹${s.price}</p>`).join("");
+});
+</script>

@@ -1,0 +1,11 @@
+<h2>Laundry Services</h2>
+<div id="list"></div>
+
+<script>
+fetch("http://localhost:5000/api/services/laundry")
+.then(res => res.json())
+.then(data => {
+  document.getElementById("list").innerHTML =
+    data.map(s => `<p>${s.title} - ${s.price}</p>`).join("");
+});
+</script>
